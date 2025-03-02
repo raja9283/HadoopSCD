@@ -24,7 +24,7 @@ The pipeline follows a layered architecture:
 
 ## Repository Structure
 ```
-scd-data-pipeline/
+HadoopSCD/
 ├── one_time_load_sqoop.txt         # Sqoop commands for initial load
 ├── incremental_sqoop.sh            # Bash script for incremental Sqoop imports
 ├── hive_ddls/                      # Hive table DDLs and load commands
