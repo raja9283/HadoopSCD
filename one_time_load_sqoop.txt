@@ -1,0 +1,49 @@
+# One-time Sqoop commands for initial load from MySQL to HDFS
+
+# Customers
+sqoop import \
+  --connect "jdbc:mysql://<MYSQL_HOST>:3306/<DATABASE>" \
+  --username <MYSQL_USER> \
+  --password <MYSQL_PASS> \
+  --table customers \
+  --target-dir /data/customers/2025-03-01 \
+  --as-parquetfile \
+  --split-by customer_id \
+  --num-mappers 4 \
+  --delete-target-dir
+
+# Products
+sqoop import \
+  --connect "jdbc:mysql://<MYSQL_HOST>:3306/<DATABASE>" \
+  --username <MYSQL_USER> \
+  --password <MYSQL_PASS> \
+  --table products \
+  --target-dir /data/products/2025-03-01 \
+  --as-parquetfile \
+  --split-by product_id \
+  --num-mappers 4 \
+  --delete-target-dir
+
+# Orders
+sqoop import \
+  --connect "jdbc:mysql://<MYSQL_HOST>:3306/<DATABASE>" \
+  --username <MYSQL_USER> \
+  --password <MYSQL_PASS> \
+  --table orders \
+  --target-dir /data/orders/2025-03-01 \
+  --as-parquetfile \
+  --split-by order_id \
+  --num-mappers 4 \
+  --delete-target-dir
+
+# Order Details
+sqoop import \
+  --connect "jdbc:mysql://<MYSQL_HOST>:3306/<DATABASE>" \
+  --username <MYSQL_USER> \
+  --password <MYSQL_PASS> \
+  --table order_details \
+  --target-dir /data/order_details/2025-03-01 \
+  --as-parquetfile \
+  --split-by order_id \
+  --num-mappers 4 \
+  --delete-target-dir
